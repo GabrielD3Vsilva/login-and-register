@@ -1,14 +1,23 @@
+import messagesToUsers from "../messagesToUsers.js";
+
 function checkIfInputsIsEmpty ( ) {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-    if (email.value == '' || password.value == '') {
-        console.log('preencha os campos')
+    if (!email.value || !password.value) {
+        email.value = '';
+        password.value = '';
+        messagesToUsers.caseIfInputsIsEmpty( );
     } else {
-        console.log('logado')
+        checkIfUserExists( );
     }
 }
 
+
+function checkIfUserExists ( ) {
+    messagesToUsers.caseUserExists( );
+}
+
 export default {
-    checkIfInputsIsEmpty: checkIfInputsIsEmpty
+    checkIfInputsIsEmpty: checkIfInputsIsEmpty,
 }
