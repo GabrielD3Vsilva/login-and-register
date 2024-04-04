@@ -4,11 +4,10 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 
 
-const userProfile = {
-    userName: userName.value,
-    email: email.value,
-    password: password.value,
-    confirmPassword: confirmPassword.value
+function userProfile (nameProps, emailProps, passwordProps) {
+    this.n = nameProps;
+    this.e = emailProps;
+    this.p = passwordProps;
 }
 
 export default {

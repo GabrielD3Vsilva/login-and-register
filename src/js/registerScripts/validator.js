@@ -3,18 +3,23 @@ import messagesToUsers from "../messagesToUsers.js"
 
 
 function checkIfInputsIsEmpty( ) {
-    let userName = userData.userName
-    let email = userData.email
-    let password = userData.password
+    let userName = userData.userName;
+    let email = userData.email;
+    let password = userData.password;
     let confirmPassword = userData.confirmPassword;
 
 
     if(!userName || !email || !password|| !confirmPassword ) {
         messagesToUsers.caseIfInputsIsEmpty( );
     } else {
-        
+        checkLengthPasswords( );
     }
 
+}
+
+
+function checkLengthPasswords( ) {
+    
 }
 
 export default {
