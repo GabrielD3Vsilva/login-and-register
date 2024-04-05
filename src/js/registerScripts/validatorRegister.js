@@ -19,11 +19,24 @@ function checkIfInputsEmpty( ) {
     }
 }
 
-function checkPasswordLength(password) {
-    if(password.value.length < 6) {
-        console.log('senha curta');
+function checkPasswordLength() {
+    const userPassword = document.getElementById('userPassword');
+    if(userPassword.value.length < 6) {
+        messagesToUsers.caseShortPassword( );
     } else {
-        console.log('senha legal');
+        checkPasswordEquality( );
+    }
+}
+
+
+function checkPasswordEquality ( ) {
+    const userPassword = document.getElementById('userPassword');
+    const confirmPassword = document.getElementById('confirm-password');
+
+    if (userPassword.value !== confirmPassword.value) {
+        console.log('diferentes');
+    } else {
+        console.log('iguais');
     }
 }
 
