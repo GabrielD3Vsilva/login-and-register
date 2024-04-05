@@ -18,9 +18,16 @@ function caseShortPassword ( ) {
 }
 
 
+//retornando mensagem caso senha e confirmação de senha sejam diferentes
+function CaseDifferentPasswords ( ) {
+    document.getElementById('responseBox').innerHTML = `<h2 class="text-red-700 py-2 text-lg text-center">Sua confirmação de senha não está igual a senha!</h2>`
+}
+
+
 export default {
     caseIfInputsIsEmpty: caseIfInputsIsEmpty,
     caseUserExists: caseUserExists,
-    caseShortPassword: caseShortPassword
+    caseShortPassword: caseShortPassword,
+    CaseDifferentPasswords: CaseDifferentPasswords
 }
 

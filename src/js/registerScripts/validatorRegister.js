@@ -1,4 +1,6 @@
 import messagesToUsers from '../messagesToUsers.js'
+import createUsers from './createUsers.js';
+
 
 function checkIfInputsEmpty( ) {
     const userName = document.getElementById('userName');
@@ -34,9 +36,13 @@ function checkPasswordEquality ( ) {
     const confirmPassword = document.getElementById('confirm-password');
 
     if (userPassword.value !== confirmPassword.value) {
-        console.log('diferentes');
+        userPassword.value = '';
+        confirmPassword.value = '';
+        messagesToUsers.CaseDifferentPasswords( );
     } else {
-        console.log('iguais');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        createUsers.createNewUser(userName.value, userEmail.value, userPassword.value)
     }
 }
 
