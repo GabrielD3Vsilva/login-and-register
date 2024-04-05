@@ -15,7 +15,15 @@ function checkIfInputsEmpty( ) {
 
         messagesToUsers.caseIfInputsIsEmpty( ); 
     } else {
-        console.log('ok');
+        checkPasswordLength(userPassword);
+    }
+}
+
+function checkPasswordLength(password) {
+    if(password.value.length < 6) {
+        console.log('senha curta');
+    } else {
+        console.log('senha legal');
     }
 }
 
