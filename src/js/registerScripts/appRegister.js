@@ -4,3 +4,5 @@ const btnRegister = document.getElementById('registerButton');
 
 btnRegister.addEventListener('click', validatorRegister.checkIfInputsEmpty);
 
+
+

@@ -1,5 +1,19 @@
-import messagesToUsers from '../messagesToUsers.js'
-import createUsers from './createUsers.js';
+import messagesToUsers from '../messagesToUsers.js';
+
+
+const existingData = JSON.parse(localStorage.getItem("myData")) || [];
+
+function ConstructUser (nameProps, emailProps, passwordProps) {
+    this.nameProps = nameProps;
+    this.emailProps = emailProps;
+    this.passwordProps = passwordProps;
+}
+
+function objectExists (emailProps) {
+    return existingData.some(object => {
+        return object.emailProps === emailProps
+    })
+}
 
 
 function checkIfInputsEmpty( ) {
@@ -20,6 +34,7 @@ function checkIfInputsEmpty( ) {
         checkPasswordLength(userPassword);
     }
 }
+
 
 function checkPasswordLength() {
     const userPassword = document.getElementById('userPassword');
@@ -42,8 +57,30 @@ function checkPasswordEquality ( ) {
     } else {
         const userName = document.getElementById('userName');
         const userEmail = document.getElementById('userEmail');
-        createUsers.createNewUser(userName.value, userEmail.value, userPassword.value)
+
+        const userProfile = new ConstructUser (userName.value, userEmail.value, userPassword.value);
+
+        checkIfUserExists(userProfile);
+
     }
+}
+
+
+function checkIfUserExists(userObjectReturned) {
+    const userEmail = document.getElementById('userEmail');
+
+    if(objectExists(userEmail.value)) {
+        console.log('usuário já existente');
+    } else {
+        console.log('usuário não existente');
+        existingData.push(userObjectReturned);
+        const add = localStorage.setItem("myData", JSON.stringify(existingData));
+        console.log(add);
+    }
+    //console.log(userObjectReturned)
+    //existingData.push(userObjectReturned);
+    //localStorage.setItem("myData", JSON.stringify(existingData));
+
 }
 
 export default {
