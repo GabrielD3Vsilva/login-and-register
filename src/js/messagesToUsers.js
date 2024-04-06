@@ -23,11 +23,21 @@ function CaseDifferentPasswords ( ) {
     document.getElementById('responseBox').innerHTML = `<h2 class="text-red-700 py-2 text-lg text-center">Sua confirmação de senha não está igual a senha!</h2>`
 }
 
+function caseUserExistsInRegister () {
+    document.getElementById('responseBox').innerHTML = `<h2 class="text-red-700 py-2 text-lg text-center">Esse email já existente em outra conta.</h2>`
+}
+
+function caseIncorrectPassword ( ) {
+    document.getElementById('responseBox').innerHTML = `<h2 class="text-red-700 py-2 text-lg text-center">Email ou senha incorretos</h2>`
+}
+
 
 export default {
     caseIfInputsIsEmpty: caseIfInputsIsEmpty,
     caseUserExists: caseUserExists,
     caseShortPassword: caseShortPassword,
-    CaseDifferentPasswords: CaseDifferentPasswords
+    CaseDifferentPasswords: CaseDifferentPasswords,
+    caseUserExistsInRegister: caseUserExistsInRegister,
+    caseIncorrectPassword: caseIncorrectPassword
 }
 

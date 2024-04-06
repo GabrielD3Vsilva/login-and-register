@@ -70,19 +70,17 @@ function checkIfUserExists(userObjectReturned) {
     const userEmail = document.getElementById('userEmail');
 
     if(objectExists(userEmail.value)) {
-        console.log('usuário já existente');
+        messagesToUsers.caseUserExistsInRegister( );
     } else {
+
         console.log('usuário não existente');
         existingData.push(userObjectReturned);
-        const add = localStorage.setItem("myData", JSON.stringify(existingData));
-        console.log(add);
+        localStorage.setItem("myData", JSON.stringify(existingData));
+        location.href = "index.html";
     }
-    //console.log(userObjectReturned)
-    //existingData.push(userObjectReturned);
-    //localStorage.setItem("myData", JSON.stringify(existingData));
 
 }
 
 export default {
-    checkIfInputsEmpty: checkIfInputsEmpty
+    checkIfInputsEmpty: checkIfInputsEmpty,
 }
